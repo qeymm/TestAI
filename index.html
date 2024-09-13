@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Medishure Quotation Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>SALES GPT</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Instruction</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="form-section">
+        <h2>Client <span>Information</span></h2>
+        <form>
+            <div class="input-group">
+                <label for="name">Complete Name:</label>
+                <input type="text" id="name" name="name" placeholder="Dominic Frei">
+            </div>
+
+            <div class="input-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="52">
+            </div>
+
+            <div class="input-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="country">Country of Residence:</label>
+                <select id="country" name="country">
+                    <option value="indonesia">Indonesia</option>
+                    <!-- Add other country options here -->
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="area">Area Of Cover:</label>
+                <select id="area" name="area">
+                    <option value="excluding-usa">Excluding USA</option>
+                    <!-- Add other options here -->
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="insurance-type">Insurance Type:</label>
+                <select id="insurance-type" name="insurance-type">
+                    <option value="health">Health Insurance</option>
+                    <!-- Add other insurance types here -->
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="client-type">Client Type:</label>
+                <select id="client-type" name="client-type">
+                    <option value="individual">Individual</option>
+                    <!-- Add other client types here -->
+                </select>
+            </div>
+
+            <button type="submit" class="generate-btn">Generate Quote</button>
+        </form>
+    </section>
+</body>
+</html>
