@@ -1,83 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Medishure Quotation Tool</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header class="header">
-        <div class="logo">
-            <h1>SALES GPT</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Instruction</a></li>
-                <li><a href="#">History</a></li>
-                <li><a href="#">Profile</a></li>
-            </ul>
-        </nav>
-    </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insurance Quote</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <h1>Insurance Quote Generator</h1>
+    <form id="quote-form">
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required />
 
-    <section class="form-section">
-        <h2>Client <span>Information</span></h2>
-        <form>
-            <div class="input-group">
-                <label for="name">Complete Name:</label>
-                <input type="text" id="name" name="name" placeholder="Dominic Frei">
-            </div>
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
 
-            <div class="input-group">
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" placeholder="52">
-            </div>
+      <label for="country">Country:</label>
+      <select id="country" name="country">
+        <option value="Indonesia">Indonesia</option>
+        <option value="USA">USA</option>
+      </select>
 
-            <div class="input-group">
-                <label for="gender">Gender:</label>
-                <select id="gender" name="gender">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
+      <label for="insurance-type">Insurance Type:</label>
+      <select id="insurance-type" name="insurance_type">
+        <option value="Health">Health</option>
+        <option value="Life">Life</option>
+      </select>
 
-            <div class="input-group">
-                <label for="country">Country of Residence:</label>
-                <select id="country" name="country">
-                    <option value="indonesia">Indonesia</option>
-                    <!-- Add other country options here -->
-                </select>
-            </div>
+      <button type="submit">Generate Quote</button>
+    </form>
 
-            <div class="input-group">
-                <label for="area">Area Of Cover:</label>
-                <select id="area" name="area">
-                    <option value="excluding-usa">Excluding USA</option>
-                    <!-- Add other options here -->
-                </select>
-            </div>
+    <h2 id="quote-result"></h2>
 
-            <div class="input-group">
-                <label for="insurance-type">Insurance Type:</label>
-                <select id="insurance-type" name="insurance-type">
-                    <option value="health">Health Insurance</option>
-                    <!-- Add other insurance types here -->
-                </select>
-            </div>
+    <script>
+      document
+        .getElementById("quote-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-            <div class="input-group">
-                <label for="client-type">Client Type:</label>
-                <select id="client-type" name="client-type">
-                    <option value="individual">Individual</option>
-                    <!-- Add other client types here -->
-                </select>
-            </div>
+          const data = {
+            age: document.getElementById("age").value,
+            gender: document.getElementById("gender").value,
+            country: document.getElementById("country").value,
+            insurance_type: document.getElementById("insurance-type").value,
+          };
 
-            <button type="submit" class="generate-btn">Generate Quote</button>
-        </form>
-    </section>
-</body>
+          fetch("/api/recommend", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              document.getElementById(
+                "quote-result"
+              ).innerHTML = `Best Plan: ${data.best_plan}`;
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+    </script>
+  </body>
 </html>

@@ -1,135 +1,60 @@
-/* General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fbfbf2; /* Light background color */
-    color: #000; /* General text color */
-    line-height: 1.6;
-    margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fbfbf2; /* Light background color */
+  color: #000; /* General text color */
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* Header Styles */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #fbfbf2; /* Match light background */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
 }
 
-.logo h1 {
-    font-size: 1.5rem;
-    color: #000; /* Black text color for logo */
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #000; /* Black text for links */
-    font-size: 1rem;
-}
-
-/* Form Section */
-.form-section {
-    padding: 40px;
-    text-align: center;
-}
-
-.form-section h2 {
-    font-size: 2rem;
-    color: #1B1B1B; /* Darker text for header */
-    margin-bottom: 20px;
-}
-
-.form-section h2 span {
-    color: #18B1B1; /* Aqua/Teal color for highlighted text */
+h1 {
+  color: #333;
+  text-align: center;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
-.input-group {
-    margin-bottom: 15px;
-    width: 300px;
+label,
+input,
+select,
+button {
+  margin-bottom: 10px;
 }
 
-.input-group label {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-    color: #000; /* Black for labels */
+input,
+select {
+  padding: 8px;
+  font-size: 16px;
 }
 
-.input-group input, 
-.input-group select {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #a6a2a2; /* Border with one of the gray palette colors */
-    border-radius: 25px; /* Rounded edges for input */
-    font-size: 1rem;
-    color: #000; /* Black text */
-    background-color: #fff; /* White background for inputs */
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.input-group select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%205'><path%20fill='%23000'%20d='M2%205L0%203h4z'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 10px 5px;
-    padding-right: 30px;
+button:hover {
+  background-color: #0056b3;
 }
 
-.generate-btn {
-    padding: 10px 30px;
-    font-size: 1rem;
-    background-color: #1b1b1b; /* Darker background for button */
-    color: white;
-    border: none;
-    border-radius: 30px; /* Rounded edges for button */
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-.generate-btn:hover {
-    background-color: #18B1B1; /* Teal hover effect */
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-    }
-
-    .input-group {
-        width: 80%;
-    }
-}
-
-@media (max-width: 480px) {
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
+#quote-result {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: center;
+  color: #333;
 }
